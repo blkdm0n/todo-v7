@@ -7,9 +7,9 @@ var todoList = {
     } else {
         for (let i = 0; i < this.todos.length; i++) {
           if (this.todos[i].completed === true) {
-            console.log(`(X) ${this.todos[i].todoText}`);
+            console.log(`[X] ${this.todos[i].todoText}`);
           } else {
-            console.log(`( ) ${this.todos[i].todoText}`)
+            console.log(`[ ] ${this.todos[i].todoText}`)
           }
       }
     }
@@ -69,12 +69,22 @@ var todoList = {
   }
 }
 
-//get access to the displaytodos button
-
+// accessing the button elements and adding an event listener
 var displayTodosButton = document.getElementById('display-todos');
-
-//We want to run the method when the button is clicked
 
 displayTodosButton.addEventListener('click', ()=> {
   todoList.displayTodos();
-})
+});
+
+
+todoList.addTodo('first');
+todoList.addTodo('second');
+todoList.addTodo('third');
+todoList.addTodo('fourth');
+
+var toggleAllButton = document.getElementById('toggle-all');
+
+toggleAllButton.addEventListener('click', ()=> {
+  todoList.toggleAll();
+});
+
